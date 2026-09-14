@@ -1,0 +1,23 @@
+# Функция для каждой операции
+
+def not_bit(x):
+    return (~x) & 1
+
+def expr1(A, B, C):
+    return not_bit(A & B) | not_bit(A | C)
+
+def expr2(A, B, C):
+    return (A & B) | (not_bit(B) & C)
+
+def expr3(A, B, C):
+    return (A & B) | not_bit(C)
+
+for A in [0, 1]:                        # Перебор комбинаций A, B, C
+    for B in [0, 1]:
+        for C in [0, 1]:
+            
+print(f"A={A} B={B} C={C} | E1={expr1(A,B,C)} E2={expr2(A,B,C)} E3={expr3(A,B,C)}")
+
+A, B, C = True, False, True
+print(int(A) & int(B))   # 0
+print(int(A) | int(C))   # 1
